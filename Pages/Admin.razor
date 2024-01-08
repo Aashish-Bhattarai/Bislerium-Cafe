@@ -1,14 +1,17 @@
-﻿@page "/staff"
+﻿@page "/admin"
+
 <body class="container">
 
-        <div class="heading">
-        <h1> Select Coffee and Add-ins:</h1>
-        </div>    
+    <div class="heading">
+        <h1>Admin Dashboard</h1>
+    </div>
 
     <div class="content-container">
-        <div class="coffee-selection">
+        <div class="coffee-configuration">
+            <h2>Coffee Configuration</h2>
+
+            <!-- Coffee configuration -->
             <div>
-                <!-- Coffee Selection -->
                 <label for="coffeeType">Select Coffee Type:</label>
                 <select id="coffeeType">
                     <option value="">Select Coffee Type</option>
@@ -17,23 +20,21 @@
                     <option>Espresso</option>
                 </select>
             </div>
-            <div>
-                <label for="coffeePrice">Coffee Price:</label>
-                <input type="text" id="coffeePrice" placeholder="Selected Coffee Price">
-            </div>
 
             <div>
-                <label for="userMembership">Membership-ID:</label>
-                <input type="text" id="userMembership" placeholder="Enter Membership-ID">
+                <label for="coffeePrice">Coffee Price:</label>
+                <input type="text" id="coffeePrice" placeholder="Enter Coffee Price">
             </div>
         </div>
 
-        <div class="coffee-addin">
+        <div class="addin-configuration">
+            <h2>Add-in Configuration</h2>
+
+            <!-- Add-In configuration -->
             <div>
-                <!-- Add-in Selection -->
                 <label for="addInType">Select Add-in:</label>
                 <select id="addInType">
-                    <option value="">Select Add-in </option>
+                    <option value="">Select Add-in</option>
                     <option>Cinnamon</option>
                     <option>Honey</option>
                     <option>Ginger</option>
@@ -41,43 +42,22 @@
             </div>
 
             <div>
-                <label for="addInPrice">Add-in Price:</label>
-                <input type="text" id="addInPrice" placeholder="Selected Add-in Price">
+                <label for="add-inPrice">Add-in Price:</label>
+                <input type="text" id="add-inPrice" placeholder="Enter Add-in Price">
             </div>
         </div>
     </div>
 
     <div class="button-container">
-        <button onclick="placeOrder()">Place Order</button>
-    </div>
-    
-    <div class="table">
-        <table>
-            <tr>
-                <th> ID </th>
-                <th> Coffee Type </th>
-                <th> Price </th>
-                <th> Add-In Type </th>
-                <th> Price </th>
-                <th> Total Price </th>
-                <th> Bill </th>  @* This should be a button after clicking which a bill is generated *@  
-            </tr>
-            @*
-                Should get the value from the selected items by the staff for the users after clicking the place order button. I don't know how to implement the logic as of now ;)
-            *@
-        </table>
-    </div>
-
-    <div class="btn-Report">
-        <button onclick="generateReport()">Generate Report</button>
-        @*
-            should generate report in a pdf after clicking this button
-        *@
+        <button onclick="configureCoffee()" style="margin-left:17%">Configure Coffee </button>
+        <button onclick="configureAddin()" style="margin-right:17%">Configure Add-ins</button>
     </div>
 
 </body>
 
 @code {
+
+    // Add necessary code for configuring coffee and generating reports.
 
 }
 
@@ -106,13 +86,12 @@
     .heading {
         margin-bottom: 20px; /* Optional margin for spacing */
         font-family: 'Times New Roman', Times, serif;
-        margin-left:15px;
+        margin-left: 15px;
         color: maroon;
     }
 
-
-    .coffee-selection,
-    .coffee-addin {
+    .coffee-configuration,
+    .addin-configuration {
         background-color: #fff;
         padding: 15px;
         border: 1px solid #ccc;
@@ -122,7 +101,6 @@
         margin-left: 15px;
         flex: 1;
     }
-
 
     label {
         display: block;
@@ -139,7 +117,7 @@
     }
 
     .button-container {
-        margin-top: 15px;
+        margin-top: 25px;
         display: flex;
         justify-content: space-between;
     }
@@ -154,25 +132,10 @@
         margin-left: 15px;
         padding-left: 25px;
         padding-right: 25px;
-        margin-left: 15px;
     }
 
-        button:hover {
-            background-color: #388e3c;
-        }
-
-    table, th, td {
-        border: 1px solid black;
-        margin-top: 60px;
-        margin-left: 15px;
-        padding-left:20px;
-        padding-right:20px;
-    }
-
-    .btn-Report {
-        margin-top: 60px;
-        display: flex;
-        justify-content: space-between;
+    button:hover {
+        background-color: #388e3c;
     }
 
 </style>
