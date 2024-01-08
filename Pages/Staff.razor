@@ -22,16 +22,16 @@
             </div>
 
             <div>
-                <label for="userMembership">User Membership:</label>
-                <input type="text" id="userMembership" placeholder="Enter User Membership">
+                <label for="userMembership">Membership-ID:</label>
+                <input type="text" id="userMembership" placeholder="Enter Membership-ID">
             </div>
         </div>
 
         <div class="coffee-addin">
             <div>
-                <label for="addInType">Select Add-in Type:</label>
+                <label for="addInType">Select Add-in:</label>
                 <select id="addInType">
-                    <option value="">Select Add-in Type</option>
+                    <option value="">Select Add-in </option>
                     <option>Cinnamon</option>
                     <option>Honey</option>
                     <option>Ginger</option>
@@ -47,6 +47,30 @@
 
     <div class="button-container">
         <button onclick="placeOrder()">Place Order</button>
+    </div>
+    
+    <div class="table">
+        <table>
+            <tr>
+                <th> ID </th>
+                <th> Coffee Type </th>
+                <th> Price </th>
+                <th> Add-In Type </th>
+                <th> Price </th>
+                <th> Total Price </th>
+                <th> Bill </th>  @* This should be a button after clicking which a bill is generated *@  
+            </tr>
+            @*
+                Should get the value from the selected items by the staff for the users after clicking the place order button. I don't know how to implement the logic as of now ;)
+            *@
+        </table>
+    </div>
+
+    <div class="btn-Report">
+        <button onclick="generateReport()">Generate Report</button>
+        @*
+            should generate report in a pdf after clicking this button
+        *@
     </div>
 
 </body>
@@ -81,6 +105,7 @@
         margin-bottom: 20px; /* Optional margin for spacing */
         font-family: 'Times New Roman', Times, serif;
         margin-left:15px;
+        color: maroon;
     }
 
 
@@ -127,10 +152,25 @@
         margin-left: 15px;
         padding-left: 25px;
         padding-right: 25px;
-        margin-left:383px;
+        margin-left: 15px;
     }
 
         button:hover {
             background-color: #388e3c;
         }
+
+    table, th, td {
+        border: 1px solid black;
+        margin-top: 60px;
+        margin-left: 15px;
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .btn-Report {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+
 </style>
