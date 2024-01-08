@@ -1,0 +1,113 @@
+﻿@page "/configCoffee"
+
+<body class="container">
+
+    <div class="heading">
+        <h1>Admin Dashboard</h1>
+    </div>
+
+    
+        <div class="coffee-configuration">
+        <h2><b><u>Coffee Configuration</u></b></h2>
+        &nbsp;
+            <!-- Coffee configuration -->
+            <div>
+                <label for="coffeeType">Select Coffee Type:</label>
+                <select id="coffeeType">
+                    <option value="">Select Coffee Type</option>
+                    <option>Cappuccino</option>
+                    <option>Latte</option>
+                    <option>Espresso</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="coffeePrice">Coffee Price:</label>
+                <input type="text" id="coffeePrice" placeholder="Enter Coffee Price">
+            </div>
+            <div class="button-container">
+                <button onclick="configureCoffee()" style="margin-left:40%">Configure </button>
+            </div>
+        </div>
+
+
+    
+
+</body>
+
+
+@code {
+
+}
+
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .coffee-configuration {
+        height: 405px;
+        width: 650px;
+    }
+
+    .heading {
+        margin-bottom: 20px; /* Optional margin for spacing */
+        font-family: 'Times New Roman', Times, serif;
+        margin-left: 15px;
+        color: maroon;
+    }
+
+    .coffee-configuration {
+        background-color: #fff;
+        padding: 15px;
+        padding-top: 35px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        margin-left: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        margin: 10px;
+        font-size: 20px;
+    }
+
+    select,
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .button-container {
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        padding: 13px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+ </style>
