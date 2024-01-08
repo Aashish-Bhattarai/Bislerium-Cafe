@@ -1,45 +1,55 @@
 ﻿@page "/staff"
-<body>
-<div class= "coffee-selection">
-<div>
-    <label for="coffeeType">Select Coffee Type:</label>
-    <select id="coffeeType">
-        <option>Cappuccino</option>
-        <option>Latte</option>
-        <option>Espresso</option>
-    </select>
-</div>
-</div>
+<body class="container">
 
-<div class= "coffee-addin">
-<div>
-    <label for="coffeePrice">Coffee Price:</label>
-    <input type="text" id="coffeePrice" placeholder="Enter Coffee Price">
-</div>
+        <div class="heading">
+        <h1> Select Coffee and Add-ins:</h1>
+        </div>    
 
-<div>
-    <label for="userMembership">User Membership:</label>
-    <input type="text" id="userMembership" placeholder="Enter User Membership">
-</div>
+    <div class="content-container">
+        <div class="coffee-selection">
+            <div>
+                <label for="coffeeType">Select Coffee Type:</label>
+                <select id="coffeeType">
+                    <option value="">Select Coffee Type</option>
+                    <option>Cappuccino</option>
+                    <option>Latte</option>
+                    <option>Espresso</option>
+                </select>
+            </div>
+            <div>
+                <label for="coffeePrice">Coffee Price:</label>
+                <input type="text" id="coffeePrice" placeholder="Selected Coffee Price">
+            </div>
 
-<div>
-    <label for="addInType">Select Add-in Type:</label>
-    <select id="addInType">
-        <option>Cinnamon</option>
-        <option>Honey</option>
-        <option>Ginger</option>
-    </select>
-</div>
-<div>
-    <label for="addInPrice">Add-in Price:</label>
-    <input type="text" id="addInPrice" placeholder="Enter Add-in Price">
-</div>
-</div>
+            <div>
+                <label for="userMembership">User Membership:</label>
+                <input type="text" id="userMembership" placeholder="Enter User Membership">
+            </div>
+        </div>
 
-<button onclick="placeOrder()">Place Order</button>
-<button onclick="backToMainMenu()">Back to Main Menu</button>
+        <div class="coffee-addin">
+            <div>
+                <label for="addInType">Select Add-in Type:</label>
+                <select id="addInType">
+                    <option value="">Select Add-in Type</option>
+                    <option>Cinnamon</option>
+                    <option>Honey</option>
+                    <option>Ginger</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="addInPrice">Add-in Price:</label>
+                <input type="text" id="addInPrice" placeholder="Selected Add-in Price">
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
 </body>
-
 
 @code {
 
@@ -50,13 +60,29 @@
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
         margin: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
     }
 
     .container {
         display: flex;
-        justify-content: space-between;
-        padding: 20px;
+        flex-direction: column; /* Change to column */
+        flex: 1;
     }
+
+    .content-container {
+        display: flex;
+        justify-content: space-between;
+        flex: 1;
+    }
+
+    .heading {
+        margin-bottom: 20px; /* Optional margin for spacing */
+        font-family: 'Times New Roman', Times, serif;
+        margin-left:15px;
+    }
+
 
     .coffee-selection,
     .coffee-addin {
@@ -66,11 +92,15 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
+        margin-left: 15px;
+        flex: 1;
     }
+
 
     label {
         display: block;
         margin-bottom: 5px;
+        font-size: 20px;
     }
 
     select,
@@ -81,17 +111,26 @@
         box-sizing: border-box;
     }
 
+    .button-container {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
     button {
-        padding: 10px;
+        padding: 13px;
         background-color: #4caf50;
         color: #fff;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        margin-left: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-left:383px;
     }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #388e3c;
         }
-
 </style>
