@@ -46,7 +46,7 @@
         _spinnerClass = "";
 
         if (loginModel.UserName == "admin" && loginModel.Password == "admin")
-            _navigationManager.NavigateTo("/configCoffee");
+            _navigationManager.NavigateTo("/admin");
         else if (loginModel.UserName == "staff" && loginModel.Password == "staff")
             _navigationManager.NavigateTo("/staff");
         else

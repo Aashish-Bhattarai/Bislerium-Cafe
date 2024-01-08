@@ -3,123 +3,50 @@
 <body class="container">
 
     <div class="heading">
-        <h1>Admin Dashboard</h1>
+        <h1>Welcome, Admin!!</h1>
     </div>
-
-    <div class="content-container">
-        <div class="coffee-configuration">
-            <h2>Coffee Configuration</h2>
-
-            <!-- Coffee configuration -->
-            <div>
-                <label for="coffeeType">Select Coffee Type:</label>
-                <select id="coffeeType">
-                    <option value="">Select Coffee Type</option>
-                    <option>Cappuccino</option>
-                    <option>Latte</option>
-                    <option>Espresso</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="coffeePrice">Coffee Price:</label>
-                <input type="text" id="coffeePrice" placeholder="Enter Coffee Price">
-            </div>
-        </div>
-
-        <div class="addin-configuration">
-            <h2>Add-in Configuration</h2>
-
-            <!-- Add-In configuration -->
-            <div>
-                <label for="addInType">Select Add-in:</label>
-                <select id="addInType">
-                    <option value="">Select Add-in</option>
-                    <option>Cinnamon</option>
-                    <option>Honey</option>
-                    <option>Ginger</option>
-                </select>
-            </div>
-
-            <div>
-                <label for="add-inPrice">Add-in Price:</label>
-                <input type="text" id="add-inPrice" placeholder="Enter Add-in Price">
-            </div>
-        </div>
+    <br />
+    <div class="heading2">
+        <h2> Choose Configuration Options: </h2>
     </div>
+    <br />
 
-    <div class="button-container">
-        <button onclick="configureCoffee()" style="margin-left:17%">Configure Coffee </button>
-        <button onclick="configureAddin()" style="margin-right:17%">Configure Add-ins</button>
+    <div class="btn-container">
+     
+        <button @onclick="NavigateToCoffee"> Configure Coffee</button>
+    
+        <button @onclick="NavigateToAddIns" style="margin-left:30px;"> Configure Add-ins</button>
+   
     </div>
 
 </body>
 
 @code {
+    [Inject]
+    private NavigationManager NavigationManager { get; set; }
 
-    // Add necessary code for configuring coffee and generating reports.
+    private void NavigateToCoffee()
+    {
+        NavigationManager.NavigateTo("/configCoffee");
+    }
+
+    private void NavigateToAddIns()
+    {
+        NavigationManager.NavigateTo("/configAddin");
+    }
 
 }
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-    }
 
-    .container {
-        display: flex;
-        flex-direction: column; /* Change to column */
-        flex: 1;
-    }
-
-    .content-container {
-        display: flex;
-        justify-content: space-between;
-        flex: 1;
-    }
-
-    .heading {
-        margin-bottom: 20px; /* Optional margin for spacing */
-        font-family: 'Times New Roman', Times, serif;
-        margin-left: 15px;
+    h1{
         color: maroon;
+        font-family:'Times New Roman', Times, serif;
     }
 
-    .coffee-configuration,
-    .addin-configuration {
-        background-color: #fff;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        margin-left: 15px;
-        flex: 1;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-        font-size: 20px;
-    }
-
-    select,
-    input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
-    }
-
-    .button-container {
-        margin-top: 25px;
+    .btn-container {
         display: flex;
-        justify-content: space-between;
+        margin: 10px;
     }
 
     button {
@@ -129,13 +56,12 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        margin-left: 15px;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 20px;
+        padding-right: 20px; 
+       
     }
 
     button:hover {
         background-color: #388e3c;
     }
-
 </style>
