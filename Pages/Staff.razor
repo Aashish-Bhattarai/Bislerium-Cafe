@@ -1,10 +1,97 @@
 ﻿@page "/staff"
-<div class="coffee">
-    This is staff code.
-
+<body>
+<div class= "coffee-selection">
+<div>
+    <label for="coffeeType">Select Coffee Type:</label>
+    <select id="coffeeType">
+        <option>Cappuccino</option>
+        <option>Latte</option>
+        <option>Espresso</option>
+    </select>
 </div>
+</div>
+
+<div class= "coffee-addin">
+<div>
+    <label for="coffeePrice">Coffee Price:</label>
+    <input type="text" id="coffeePrice" placeholder="Enter Coffee Price">
+</div>
+
+<div>
+    <label for="userMembership">User Membership:</label>
+    <input type="text" id="userMembership" placeholder="Enter User Membership">
+</div>
+
+<div>
+    <label for="addInType">Select Add-in Type:</label>
+    <select id="addInType">
+        <option>Cinnamon</option>
+        <option>Honey</option>
+        <option>Ginger</option>
+    </select>
+</div>
+<div>
+    <label for="addInPrice">Add-in Price:</label>
+    <input type="text" id="addInPrice" placeholder="Enter Add-in Price">
+</div>
+</div>
+
+<button onclick="placeOrder()">Place Order</button>
+<button onclick="backToMainMenu()">Back to Main Menu</button>
+</body>
 
 
 @code {
 
 }
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+
+    .coffee-selection,
+    .coffee-addin {
+        background-color: #fff;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    select,
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+</style>
