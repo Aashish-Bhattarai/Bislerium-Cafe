@@ -1,0 +1,77 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.Components.Routing
+@using Models
+@inject Microsoft.AspNetCore.Components.NavigationManager _navigationManager
+
+<h1> Welcome to Bislerium Cafe </h1>
+
+<EditForm Model="@loginModel" OnValidSubmit="Submit">
+<DataAnnotationsValidator />
+    <div class="form-group">
+        <label> Username </label>
+        <input type="text" @bind-value="@loginModel.UserName" class="form-control l-inputs" placeholder="Username">
+        <ValidationMessage For="@( () => @loginModel.UserName)" />
+
+    </div>
+
+
+    <div class="mt-2 form-group">
+        <label> Password </label>
+        <input type="password" @bind-value="@loginModel.Password" class="form-control l-inputs" placeholder="Enter your password">
+        <ValidationMessage For="@( () => @loginModel.Password)" />
+
+    </div>
+
+    <div class="mt-2">
+        <button class="btn btn-primary" type="submit"> 
+            <span class="@_spinnerClass" role="status" aria-hidden="true"></span>
+            Sign IN</button>
+
+    </div>
+
+</EditForm>
+
+
+
+@code {
+    LoginModel loginModel = new();
+
+    private string _spinnerClass = "";
+
+    private async void Submit()
+    {
+        _spinnerClass = "spinner-border spinner-border-sm";
+        await Task.Delay(500);
+        _spinnerClass = "";
+        
+        if (loginModel.UserName == "admin" && loginModel.Password =="admin")
+            _navigationManager.NavigateTo("/admin" );
+        else if(loginModel.UserName == "staff" && loginModel.Password == "staff")
+            _navigationManager.NavigateTo("/staff");
+        else
+            await App.Current.MainPage.DisplayAlert("Oops", $"Invalid data", "OK");
+
+        this.StateHasChanged();
+    }
+}
+
+
+
+
+
+
+
+<style>
+
+    .l-inputs {
+        width: 300px;
+    }
+
+    .btn.btn-primary {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+    }
+</style>
